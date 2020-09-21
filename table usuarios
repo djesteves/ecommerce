@@ -1,0 +1,19 @@
+create table usuarios(
+   id serial primary key,
+   email varchar(80),
+   senha varchar(50)
+);
+
+create table produtos(
+   id serial primary key,
+   descricao varchar(255),
+   preco DECIMAL(16,2)
+);
+
+insert into usuarios values (1, 'daniloesteves2012@gmail.com', 'danilo') ;
+insert into usuarios values (2, 'admin', 'admin');
+select * from usuarios;
+select * from produtos;
+
+
+schema - > produtos
