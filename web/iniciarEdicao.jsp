@@ -19,6 +19,10 @@
         <label for="preco"><b>Preço</b></label>
         <input class="form-control" type="text" placeholder="Digite o Preço" value="${produto.preco}" name="preco" required>
     </div>
+    <div class="form-group">
+        <label for="preco"><b>Unidade</b></label>
+        <input class="form-control" type="text" placeholder="Digite a unidade do produto" value="${produto.unidade}" name="unidade" required>
+    </div>
     <br><br>
     <button class="btn btn-primary" type="submit">Atualizar</button>
     <a href="listarProdutos"><button class="btn btn-danger" type="submit">Voltar</button></a>

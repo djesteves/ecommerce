@@ -9,6 +9,15 @@ public class Produto {
     private int id;
     private String descricao;
     private double preco;
+    private String unidade;
+
+    public String getUnidade() {
+        return unidade;
+    }
+
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
+    }
 
     public int getId() {
         return id;

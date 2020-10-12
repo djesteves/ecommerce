@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
         <label for="preco">Senha: </label>
-        <input type="text" class="form-control col-5" name="senha" required>
+        <input type="password" class="form-control col-5" name="senha" required>
     </div>
 
     <br><br>

@@ -10,6 +10,7 @@
         <th scope="col">ID</th>
         <th scope="col">DESCRIÇÃO</th>
         <th scope="col">PREÇO</th>
+        <th scope="col">UNIDADE</th>
             <c:if test="${usuarioLogado != null}">
             <th scope="col">OPÇÕES</th>
             </c:if> 
@@ -20,7 +21,8 @@
         <tr>
             <td>${p.id}</td>
             <td>${p.descricao}</td>
-            <td><fmt:formatNumber value="${p.preco}" type="currency"/></td>            
+            <td><fmt:formatNumber value="${p.preco}" type="currency"/></td>
+            <td>${p.unidade}</td>            
             <c:if test="${usuarioLogado != null}">
 
                 <td>

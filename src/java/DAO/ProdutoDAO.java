@@ -18,9 +18,10 @@ public class ProdutoDAO {
     public void cadastrar(Produto produto) throws ClassNotFoundException, SQLException {
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("insert into produtos (descricao, preco) values (?, ?)");
+        PreparedStatement comando = con.prepareStatement("insert into produtos (descricao, preco, unidade) values (?, ?, ?)");
         comando.setString(1, produto.getDescricao());
         comando.setDouble(2, produto.getPreco());
+        comando.setString(3, produto.getUnidade());
         comando.execute();
 
         con.close();
@@ -38,6 +39,7 @@ public class ProdutoDAO {
             p.setId(resultado.getInt("id"));
             p.setDescricao(resultado.getString("descricao"));
             p.setPreco(resultado.getDouble("preco"));
+            p.setUnidade(resultado.getString("unidade"));
             todosProdutos.add(p);
         }
         con.close();
@@ -48,12 +50,13 @@ public class ProdutoDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("UPDATE produtos\n"
-                + "SET id=?, descricao=?, preco=?\n"
+                + "SET id=?, descricao=?, preco=?, unidade=?\n"
                 + "WHERE id = ?");
         comando.setInt(1, produto.getId());
         comando.setString(2, produto.getDescricao());
         comando.setDouble(3, produto.getPreco());
-        comando.setInt(4, produto.getId());
+        comando.setString(4, produto.getUnidade());
+        comando.setInt(5, produto.getId());
         comando.execute();
 
         con.close();
@@ -74,7 +77,7 @@ public class ProdutoDAO {
     public Produto consultarPorId(Produto produto) throws SQLException, ClassNotFoundException {
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select id, descricao, preco from produtos where id = ?");
+        PreparedStatement comando = con.prepareStatement("select id, descricao, preco, unidade from produtos where id = ?");
         comando.setInt(1, produto.getId());
 
         ResultSet resultado = comando.executeQuery();
@@ -85,6 +88,7 @@ public class ProdutoDAO {
         p.setId(resultado.getInt("id"));
         p.setDescricao(resultado.getString("descricao"));
         p.setPreco(resultado.getDouble("preco"));
+        p.setUnidade(resultado.getString("unidade"));
 
         con.close();
         return p;

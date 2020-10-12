@@ -154,6 +154,7 @@ public class ProdutoControle extends HttpServlet {
         Produto produto = new Produto();
         produto.setDescricao(request.getParameter("descricao"));
         produto.setPreco(Double.parseDouble(request.getParameter("preco")));
+        produto.setUnidade(request.getParameter("unidade"));
 
         ProdutoDAO dao = new ProdutoDAO();
         dao.cadastrar(produto);
