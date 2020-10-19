@@ -193,11 +193,12 @@ public class ProdutoControle extends HttpServlet {
         produto.setId(Integer.parseInt(request.getParameter("id")));
         produto.setDescricao(request.getParameter("descricao"));
         produto.setPreco(Double.parseDouble(request.getParameter("preco")));
+        produto.setUnidade(request.getParameter("unidade"));
 
         ProdutoDAO dao = new ProdutoDAO();
         dao.editar(produto);
 
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("listarProdutos");
 
     }
 

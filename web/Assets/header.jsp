@@ -22,7 +22,7 @@
                 <header class="masthead mb-auto">
 
                     <div class="inner">
-                        <h3 class="masthead-brand"><a href="index.jsp">Lojinha da DP</a></h3>
+                        <h3 class="masthead-brand"><a href="index.jsp">Lojinha</a></h3>
 
                         <nav class="nav nav-masthead justify-content-center">
                             <c:if test="${usuarioLogado != null}">

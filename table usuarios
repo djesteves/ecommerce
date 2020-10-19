@@ -11,10 +11,4 @@ create table produtos(
    unidade varchar(100)
 );
 
-insert into usuarios values (1, 'daniloesteves2012@gmail.com', 'danilo') ;
-insert into usuarios values (2, 'admin', 'admin');
-select * from usuarios;
-select * from produtos;
-
-
-schema - > produtos
+insert into usuarios values (1, 'admin@gmail.com', 'admin') ;
