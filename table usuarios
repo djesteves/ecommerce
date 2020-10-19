@@ -7,7 +7,8 @@ create table usuarios(
 create table produtos(
    id serial primary key,
    descricao varchar(255),
-   preco DECIMAL(16,2)
+   preco DECIMAL(16,2),
+   unidade VARCHAR(100)
 );
 
 insert into usuarios values (1, 'daniloesteves2012@gmail.com', 'danilo') ;
