@@ -91,6 +91,10 @@ public class ProdutoControle extends HttpServlet {
         HttpSession session = request.getSession(true);
         List<Produto> retornoLista = (List<Produto>) session.getAttribute("lista");
 
+        Double preco = Double.parseDouble(request.getParameter("preco"));
+        preco = (Double) session.getAttribute("total") - preco;
+        session.setAttribute("total", preco);
+
         retornoLista.remove(produto);
 
         session.setAttribute("lista", retornoLista);
@@ -108,9 +112,16 @@ public class ProdutoControle extends HttpServlet {
         HttpSession session = request.getSession(true);
         List<Produto> retornoLista = (List<Produto>) session.getAttribute("lista");
 
+        Double preco = Double.parseDouble(request.getParameter("preco"));
+
+        if (session.getAttribute("total") != null) {
+            preco = preco + (Double) session.getAttribute("total");
+        }
+
         retornoLista = AdicionaItens(produto, retornoLista);
 
         session.setAttribute("lista", retornoLista);
+        session.setAttribute("total", preco);
 
         request.getRequestDispatcher("carrinho.jsp").forward(request, response);
     }
@@ -169,9 +180,10 @@ public class ProdutoControle extends HttpServlet {
 
         retornoLista.removeAll(retornoLista);
 
+        request.getSession().removeAttribute("total");
+
         request.setAttribute("msg", "Sua compra foi finalizada com sucesso. Obrigado!");
         request.getRequestDispatcher("index.jsp").forward(request, response);
-
 
     }
 

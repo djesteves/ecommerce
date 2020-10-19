@@ -26,7 +26,7 @@
                 <td>${p.unidade}</td>
                 <c:if test="${usuarioLogado != null}">
                     <td>
-                        <a href="removerProduto?id=${p.id}"><button class="btn btn-danger" type="button">Remover do Carrinho</button></a>
+                        <a href="removerProduto?id=${p.id}&preco=${p.preco}"><button class="btn btn-danger" type="button">Remover do Carrinho</button></a>
                     </td>
                 </c:if>  
             </tr> 
@@ -34,14 +34,22 @@
         </c:forEach>
     </table>
     <c:if test="${lista.size() > 0}">
-        <div class="form-group col-md-4">
-            <label for="fmpag">Forma de pagamento:</label>
-            <select class="form-control" name="fmpag" id="fmpag" class="form-control" required>
-                <option selected>Escolha...</option>
-                <option value="DEBITO">Débito</option>
-                <option value="CREDITO">Crédito</option>
-            </select>
+
+        <div class="row">
+            <div class="col-6">
+                <label for="fmpag">Forma de pagamento:</label>
+                <select class="form-control" name="fmpag" id="fmpag" class="form-control" required>
+                    <option value="">Escolha...</option>
+                    <option value="DEBITO">Débito</option>
+                    <option value="CREDITO">Crédito</option>
+                </select>
+            </div>
+            <div class="col-6 text-right" style="font-size:25px;">
+                <div>Total do Carrinho: <fmt:formatNumber value="${total}" type="currency"/></div>
+            </div>
         </div>
+
+
     </c:if> 
 
     <br><br>
@@ -49,15 +57,15 @@
 </form>
 
 <script>
-    
-    document.addEventListener("DOMContentLoaded", function(event) {
-    let array = ['${lista}'];
-    array.forEach(myFunction)
-    
-    function myFunction(item, index) {
-        console.log(item.preco);
-    }
-  });   
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        let array = ['${lista}'];
+        array.forEach(myFunction)
+
+        function myFunction(item, index) {
+            console.log(item.preco);
+        }
+    });
 
 </script>
 <jsp:include page="Assets/footer.jsp" />

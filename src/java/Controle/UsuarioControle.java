@@ -97,6 +97,8 @@ public class UsuarioControle extends HttpServlet {
 
     private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.getSession().removeAttribute("usuarioLogado");
+        request.getSession().removeAttribute("total");
+        request.getSession().removeAttribute("lista");
         response.sendRedirect(".");
 
     }

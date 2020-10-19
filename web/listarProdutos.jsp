@@ -28,7 +28,7 @@
                 <td>
                     <a href="iniciarEdicaoProduto?id=${p.id}"><button class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
                     <a href="excluirProduto?id=${p.id}"><button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
-                    <a href="adicionarNoCarrinho?id=${p.id}"><button class="btn btn-success"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></a> 
+                    <a href="adicionarNoCarrinho?id=${p.id}&preco=${p.preco}"><button class="btn btn-success"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></a> 
                 </td>
             </c:if>  
         </tr> 
